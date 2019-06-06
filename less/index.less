@@ -62,7 +62,7 @@ a {
 }
 
 html, body {
-	height: 100%;
+	height: auto;
 
 }
 
@@ -86,6 +86,7 @@ html, body {
 
 //background colors
 @bodyContainerColor: @bodyContainerColor_forest;
+@boxTextBackgroundColor: @boxTextBackgroundColor-forest;
 @boxColor: @boxColor_forest;
 @paneColor: @paneColor_forest;
 
@@ -107,9 +108,10 @@ html, body {
 
 //background colors
 
-@bodyContainerColor_forest: linear-gradient(rgb(24, 48, 35, 1); rgba(32, 75, 51, 0));
+@bodyContainerColor_forest: linear-gradient(rgb(24, 48, 35, 1); rgba(32, 75, 51, 0.671));
 @boxColor_forest: rgba(151, 221, 154, 0.692);
 @paneColor_forest:rgba(46, 139, 87, .5);
+@boxTextBackgroundColor-forest: rgba(186, 236, 188, 0.774);
 
 //nav colors
 @navBackgroundColor_forest: linear-gradient(rgba(24, 48, 35, 1); rgba(32, 75, 51, 0));;
@@ -123,6 +125,10 @@ html, body {
 	padding: 2rem;
 }
 
+.padding1rem {
+	padding: 1rem;
+}
+
 
 /*----------------------------------------- CODE STARTS HERE --------------------------------------------*/
 
@@ -131,40 +137,43 @@ html, body {
 // }
 
 body {
-	background-image: linear-gradient(rgb(35, 75, 55), rgb(57, 94, 73));
-	background-repeat: no-repeat;
+	// background-image: linear-gradient(rgb(35, 75, 55), rgb(57, 94, 73));
+	background-image: url("../images/tree-tile-small3.gif");
+	background-color: rgb(35, 75, 55);
+	background-repeat: repeat-x;
 	background-attachment: fixed;
 	opacity: 20%;
-	height: 1vh;
+	min-height: 100%;
 	display: flex;
 	justify-content: center;
+	font-family:"Segoe UI", "Serif", "Verdana", "Arial", sans-serif;
+	
 }
 
 .body-container { // general body styling & layout
-    margin-left: 15rem;
-    margin-right: 5rem;
     margin-top: 5rem;
     max-width: 80rem;
-    min-height: 60rem;
 	font-size: 1.6rem;
 	background-image: @bodyContainerColor;
 	padding: 2rem;
 	border-radius: 20px;
 
+		@media (max-width: 820px) {
+			width: 65rem;
+		}
+
+		@media (max-width: 500px) {
+			width: 45rem;
+		}
+
 }
 
 nav { // the navigation menu
-	display: flex;
-    position: fixed;
-    left: 5%;
-    top: 10.5rem;
-	height: 40rem;
-	background-image: @navBackgroundColor;
-	border-radius: 1rem;
 	
 	.nav-links {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
+		justify-content: center;
 		// border: 1px white solid;
 	}
 
@@ -175,16 +184,48 @@ nav { // the navigation menu
 		border-radius: 1rem;
 		margin: 1rem;
 		text-align: center;
-		font-weight: 600;
+		// font-weight: 600;
+		min-width: 10rem;
+		font-size: 125%;
 	}
-	
+
+	a:hover {
+		color: rgb(247, 83, 206);
+		background-color: #131d17;
+	}
+
+	@media (max-width: 500px) {
+		a {
+			margin: 0;
+			border-radius: 0;
+		}
+
+		a:nth-child(1) {
+			border-top-left-radius: 1rem;
+			border-bottom-left-radius: 1rem;
+			background-color: rgb(110, 103, 177);
+
+		}
+
+		a:nth-child(2) {
+			background-color: rgb(176, 148, 196);
+		}
+
+		a:nth-child(3) {
+			background-color: rgb(152, 99, 168);
+		}
+
+		a:nth-child(4) {
+			border-top-right-radius: 1rem;
+			border-bottom-right-radius: 1rem;
+		}
+	}
 }
 
 header {
-
-	// border: 1px green solid;
 	display: flex;
 	align-items: center;
+	margin-bottom: 1rem;
 
 
 	.profile-img img{
@@ -210,22 +251,30 @@ header {
 	}
 }
 
-img {
-	border-radius: 1rem;
-	margin: 1rem 0;
-	margin-bottom: 2rem;
-	opacity: 80%;
-}
+// img {
+// 	border-radius: 1rem;
+// 	margin: 1rem 0;
+// 	margin-bottom: 2rem;
+// 	opacity: 80%;
+// }
 
 .resume-pane {
 
 	display: flex;
-	flex-flow: column;
+	flex-direction: column;
 	// border: cyan 1px solid;
 	margin: 2%;
 	background-color: @paneColor;
 	.padding2rem();
 	border-radius: 2rem;
+
+	@media (max-width: 500px) {
+		margin: 2rem 0;
+
+		h4 {
+			padding: 0;
+		}
+	}
 
 
 	h2 {
@@ -250,7 +299,13 @@ img {
 	p {
 		color: @paragraphColor;
 		font-weight: 400;
+		background-color: @boxTextBackgroundColor;
+		
 
+	}
+
+	.company-name {
+		color: rgb(114, 44, 136);
 	}
 
 	.resume-container {
@@ -259,6 +314,12 @@ img {
 		justify-content: space-between;
 		align-items: flex-start;
 		align-content: flex-start;
+	}
+
+	@media (max-width: 820px) {
+		.resume-container {
+			flex-flow: column nowrap;
+		}
 	}
 	
 	.resume-box {
@@ -273,6 +334,74 @@ img {
 		border-radius: 1rem;
 		line-height: 1.5;
 		min-height: 25rem;
+		box-shadow: 5px 5px 5px @subtitleColor-4;
+	}
+
+	@media (max-width: 820px) {
+		.resume-box {
+			width: 100%;
+			flex-flow: row nowrap;
+			min-height: none;
+			padding: 0 1rem;
+		
+			h3 {
+				.padding2rem();
+				min-width: 16rem;
+			}
+
+			h4 {
+				.padding2rem();
+			}
+
+			p {
+				.padding2rem();
+				background-color: @boxTextBackgroundColor;
+			}
+		}
+
+	}
+	@media (max-width: 500px) {
+		.resume-box {
+			flex-flow: column nowrap;
+		}
+	}
+
+	.i {
+		font-style: italic;
+	}
+
+	.hire-me {
+		background-color: rgb(141, 108, 155);
+		// width: 75%;
+		margin: 3rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0 1rem;
+		border-radius: 1rem;
+		box-shadow: 5px 5px 5px @subtitleColor-4;
+
+		h2 {
+			margin-right: 2rem;
+			padding-left: 1rem;
+		}
+
+		p {
+			line-height: 1.5;
+			background-color:rgb(201, 172, 194);
+			padding: 1rem;
+		}
+
+		@media (max-width: 500px) {
+
+			flex-flow: column nowrap;
+			margin: 3rem 0;
+
+			h2 {
+				padding: 1rem;
+				padding-top: 1.3rem;
+			}
+		}
 
 	}
 
@@ -295,4 +424,8 @@ img {
 			color: @linkColor;
 		}
 	}
+}
+
+.footer-container {
+	background-color: none;
 }

@@ -139,7 +139,7 @@ a {
 }
 html,
 body {
-  height: 100%;
+  height: auto;
 }
 /*----------------------------------------- Variables and Mixins --------------------------------------------*/
 /* Color Theme STRUCTURE with default values */
@@ -148,39 +148,43 @@ body {
 .padding2rem {
   padding: 2rem;
 }
+.padding1rem {
+  padding: 1rem;
+}
 /*----------------------------------------- CODE STARTS HERE --------------------------------------------*/
 body {
-  background-image: linear-gradient(#234b37, #395e49);
-  background-repeat: no-repeat;
+  background-image: url("../images/tree-tile-small3.gif");
+  background-color: #234b37;
+  background-repeat: repeat-x;
   background-attachment: fixed;
   opacity: 20%;
-  height: 1vh;
+  min-height: 100%;
   display: flex;
   justify-content: center;
+  font-family: "Segoe UI", "Serif", "Verdana", "Arial", sans-serif;
 }
 .body-container {
-  margin-left: 15rem;
-  margin-right: 5rem;
   margin-top: 5rem;
   max-width: 80rem;
-  min-height: 60rem;
   font-size: 1.6rem;
-  background-image: linear-gradient(#183023, rgba(32, 75, 51, 0));
+  background-image: linear-gradient(#183023, rgba(32, 75, 51, 0.671));
   padding: 2rem;
   border-radius: 20px;
 }
-nav {
-  display: flex;
-  position: fixed;
-  left: 5%;
-  top: 10.5rem;
-  height: 40rem;
-  background-image: linear-gradient(#183023, rgba(32, 75, 51, 0));
-  border-radius: 1rem;
+@media (max-width: 820px) {
+  .body-container {
+    width: 65rem;
+  }
+}
+@media (max-width: 500px) {
+  .body-container {
+    width: 45rem;
+  }
 }
 nav .nav-links {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
 }
 nav a {
   color: #eff7ce;
@@ -189,11 +193,38 @@ nav a {
   border-radius: 1rem;
   margin: 1rem;
   text-align: center;
-  font-weight: 600;
+  min-width: 10rem;
+  font-size: 125%;
+}
+nav a:hover {
+  color: #f753ce;
+  background-color: #131d17;
+}
+@media (max-width: 500px) {
+  nav a {
+    margin: 0;
+    border-radius: 0;
+  }
+  nav a:nth-child(1) {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    background-color: #6e67b1;
+  }
+  nav a:nth-child(2) {
+    background-color: #b094c4;
+  }
+  nav a:nth-child(3) {
+    background-color: #9863a8;
+  }
+  nav a:nth-child(4) {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
 }
 header {
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
 }
 header .profile-img img {
   border-radius: 50%;
@@ -214,19 +245,21 @@ header p {
   font-size: 2rem;
   color: rgba(151, 221, 154, 0.692);
 }
-img {
-  border-radius: 1rem;
-  margin: 1rem 0;
-  margin-bottom: 2rem;
-  opacity: 80%;
-}
 .resume-pane {
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
   margin: 2%;
   background-color: rgba(46, 139, 87, 0.5);
   padding: 2rem;
   border-radius: 2rem;
+}
+@media (max-width: 500px) {
+  .resume-pane {
+    margin: 2rem 0;
+  }
+  .resume-pane h4 {
+    padding: 0;
+  }
 }
 .resume-pane h2 {
   font-size: 2.5rem;
@@ -246,6 +279,10 @@ img {
 .resume-pane p {
   color: #191f1e;
   font-weight: 400;
+  background-color: rgba(186, 236, 188, 0.774);
+}
+.resume-pane .company-name {
+  color: #722c88;
 }
 .resume-pane .resume-container {
   display: flex;
@@ -253,6 +290,11 @@ img {
   justify-content: space-between;
   align-items: flex-start;
   align-content: flex-start;
+}
+@media (max-width: 820px) {
+  .resume-pane .resume-container {
+    flex-flow: column nowrap;
+  }
 }
 .resume-pane .resume-box {
   display: flex;
@@ -265,6 +307,63 @@ img {
   border-radius: 1rem;
   line-height: 1.5;
   min-height: 25rem;
+  box-shadow: 5px 5px 5px #365a3f;
+}
+@media (max-width: 820px) {
+  .resume-pane .resume-box {
+    width: 100%;
+    flex-flow: row nowrap;
+    min-height: none;
+    padding: 0 1rem;
+  }
+  .resume-pane .resume-box h3 {
+    padding: 2rem;
+    min-width: 16rem;
+  }
+  .resume-pane .resume-box h4 {
+    padding: 2rem;
+  }
+  .resume-pane .resume-box p {
+    padding: 2rem;
+    background-color: rgba(186, 236, 188, 0.774);
+  }
+}
+@media (max-width: 500px) {
+  .resume-pane .resume-box {
+    flex-flow: column nowrap;
+  }
+}
+.resume-pane .i {
+  font-style: italic;
+}
+.resume-pane .hire-me {
+  background-color: #8d6c9b;
+  margin: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 5px #365a3f;
+}
+.resume-pane .hire-me h2 {
+  margin-right: 2rem;
+  padding-left: 1rem;
+}
+.resume-pane .hire-me p {
+  line-height: 1.5;
+  background-color: #c9acc2;
+  padding: 1rem;
+}
+@media (max-width: 500px) {
+  .resume-pane .hire-me {
+    flex-flow: column nowrap;
+    margin: 3rem 0;
+  }
+  .resume-pane .hire-me h2 {
+    padding: 1rem;
+    padding-top: 1.3rem;
+  }
 }
 .resume-pane .skill-pane {
   display: flex;
@@ -280,4 +379,7 @@ img {
   justify-content: space-between;
   width: 33.2%;
   color: #eff7ce;
+}
+.footer-container {
+  background-color: none;
 }
