@@ -1,4 +1,3 @@
-// Is this working?
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -53,7 +52,247 @@ table {
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+html {
+	font-size: 62.5%;
+	font-family: sans-serif;
 }
 
+a {
+	text-decoration: none;
+}
+
+html, body {
+	height: 100%;
+
+}
+
+
+
+
+/*----------------------------------------- Variables and Mixins --------------------------------------------*/
+
+// Variables
+
+/* Color Theme STRUCTURE with default values */
+
+//font colors
+@nameTitleColor: @nameTitleColor_forest;
+@subtitleColor-1: @subtitleColor-1_forest;
+@subtitleColor-2: @subtitleColor-2_forest;
+@subtitleColor-3: @subtitleColor-3_forest;
+@subtitleColor-4: @subtitleColor-4_forest;
+@paragraphColor: @paragraphColor_forest;
+@linkColor: @linkColor_forest;
+
+//background colors
+@bodyContainerColor: @bodyContainerColor_forest;
+@boxColor: @boxColor_forest;
+@paneColor: @paneColor_forest;
+
+//nav colors
+@navBackgroundColor: @navBackgroundColor_forest;
+@navButtonColor: @navButtonColor_forest;
+
+
+/* FOREST color values */
+
+//fonts
+@nameTitleColor_forest: #22e774;
+@subtitleColor-1_forest: teal;
+@subtitleColor-2_forest: rgb(239, 247, 206);
+@subtitleColor-3_forest: rgba(24, 48, 35, 1);
+@subtitleColor-4_forest: rgb(54, 90, 63);
+@paragraphColor_forest: rgb(25, 31, 30);
+@linkColor_forest: rgb(239, 247, 206);
+
+//background colors
+
+@bodyContainerColor_forest: linear-gradient(rgb(24, 48, 35, 1); rgba(32, 75, 51, 0));
+@boxColor_forest: rgba(151, 221, 154, 0.692);
+@paneColor_forest:rgba(46, 139, 87, .5);
+
+//nav colors
+@navBackgroundColor_forest: linear-gradient(rgba(24, 48, 35, 1); rgba(32, 75, 51, 0));;
+@navButtonColor_forest:seagreen;
+
+
+
+/* Mixins */
+
+.padding2rem {
+	padding: 2rem;
+}
+
+
+/*----------------------------------------- CODE STARTS HERE --------------------------------------------*/
+
+// * {
+// 	// border: hotpink 1px dashed; 
+// }
+
+body {
+	background-image: linear-gradient(rgb(35, 75, 55), rgb(57, 94, 73));
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	opacity: 20%;
+	height: 1vh;
+	display: flex;
+	justify-content: center;
+}
+
+.body-container { // general body styling & layout
+    margin-left: 15rem;
+    margin-right: 5rem;
+    margin-top: 5rem;
+    max-width: 80rem;
+    min-height: 60rem;
+	font-size: 1.6rem;
+	background-image: @bodyContainerColor;
+	padding: 2rem;
+	border-radius: 20px;
+
+}
+
+nav { // the navigation menu
+	display: flex;
+    position: fixed;
+    left: 5%;
+    top: 10.5rem;
+	height: 40rem;
+	background-image: @navBackgroundColor;
+	border-radius: 1rem;
+	
+	.nav-links {
+		display: flex;
+		flex-direction: column;
+		// border: 1px white solid;
+	}
+
+	a {
+		color: @linkColor;
+		background-color: @navButtonColor;
+		padding: 1rem;
+		border-radius: 1rem;
+		margin: 1rem;
+		text-align: center;
+		font-weight: 600;
+	}
+	
+}
+
+header {
+
+	// border: 1px green solid;
+	display: flex;
+	align-items: center;
+
+
+	.profile-img img{
+		border-radius: 50%;
+		border: 2px @nameTitleColor solid;
+		width: 120px;
+		margin-right: 2rem;
+		padding: 0.4rem;
+		margin-left: 1rem;
+		background-color: black;
+	}
+
+	h1 {
+		font-weight: 800;
+		font-size: 5rem;
+		color: @nameTitleColor;
+		margin-bottom: 2rem;
+	}
+
+	p {
+		font-size: 2rem;
+		color: @boxColor;
+	}
+}
+
+img {
+	border-radius: 1rem;
+	margin: 1rem 0;
+	margin-bottom: 2rem;
+	opacity: 80%;
+}
+
+.resume-pane {
+
+	display: flex;
+	flex-flow: column;
+	// border: cyan 1px solid;
+	margin: 2%;
+	background-color: @paneColor;
+	.padding2rem();
+	border-radius: 2rem;
+
+
+	h2 {
+		font-size: 2.5rem;
+		color: @subtitleColor-2;
+		margin-bottom: 1rem;
+	}
+	
+	h3 {
+		font-size: 2rem;
+		color: @subtitleColor-3;
+		// font-family: serif;
+		font-weight: bold;
+	}
+
+	h4 {
+		font-size: 1.4rem;
+		margin: 1rem 0;
+		color:@subtitleColor-4;
+	}
+
+	p {
+		color: @paragraphColor;
+		font-weight: 400;
+
+	}
+
+	.resume-container {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		align-items: flex-start;
+		align-content: flex-start;
+	}
+	
+	.resume-box {
+		// border: 1px grey solid;
+		display: flex;
+		flex-direction: column;
+		width: 48.5%;
+		justify-content: space-around;
+		margin: 1rem 0;
+		background-color: @boxColor;
+		padding: 1rem;
+		border-radius: 1rem;
+		line-height: 1.5;
+		min-height: 25rem;
+
+	}
+
+	.skill-pane {
+		display: flex;
+		justify-content: space-between;
+		// border: 1px red solid;
+		background-color: @boxColor;
+		padding: 1rem;
+		border-radius: 1rem;
+		min-height: 20rem;
+
+		div {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 33.2%;
+			// border: 1px blue solid;
+			// background-color: @boxColor;
+			color: @linkColor;
+		}
+	}
+}

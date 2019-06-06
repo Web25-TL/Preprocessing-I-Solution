@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Resume</title>
 
   <link rel="stylesheet" href="css/index.css">
@@ -14,6 +14,43 @@
 </head>
 
 <body>
-  <h1>My Resume</h1>
+  <!-- This container controls the sizing of the body -->
+  <main class="body-container">
+      <!-- top-banner is the intro header/title and contains ALL PIECES of the top header -->
+      <header class="top-banner">
+          <h1>Faye Skeen</h1>
+          <p>Intro blurb goes here Intro blurb goes here Intro blurb goes here Intro blurb goes here </p>
+      </header>
+      
+      <!-- This container controls the sizing of the body -->
+      <nav>
+          <div class="nav-links">
+              <a href="index.html">Home</a>
+              <a href="aboutme.html">About me</a>
+              <a href="contact.html">Get in touch</a>
+          </div>
+      </nav>
+
+      <div class="projects-pane"> <!-- projects-pane is the container for the project sections below -->
+          <div class="project-pane-title"> <!-- projects-pane-title is the container for the title of the pane -->
+              <h2>Projects</h2>
+          </div>
+          <section class="project-box"> <!-- project-box is a container for a project tile. ALL ASPECTS OF TILE SHOULD BE IN THIS CONTAINER -->
+              <p>content NUMBER ONE goes here</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          </section>
+          <section class="project-box">
+              <p>content NUMBER TWO goes here</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          </section>
+          <section class="project-box">
+              <p>content NUMBER THREE goes here</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          </section>
+      </div>
+  </main>
+  <footer class="footer-container">
+      Contact info goes here
+  </footer>
 </body>
 </html>
