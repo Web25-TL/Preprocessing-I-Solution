@@ -141,8 +141,12 @@ html,
 body {
   height: auto;
 }
+.titleText {
+  font-family: 'Bowlby One SC', cursive;
+  letter-spacing: .2rem;
+}
 html {
-  background-color: lightgrey;
+  background-color: #c6ddd2;
 }
 body {
   font-size: 1.6rem;
@@ -150,6 +154,7 @@ body {
   flex-flow: column nowrap;
   align-items: center;
   position: relative;
+  font-family: 'Montserrat', sans-serif;
 }
 body header {
   display: flex;
@@ -174,13 +179,9 @@ body header .intro-blurb {
   height: 100%;
   align-items: center;
   color: white;
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-family: 'Bowlby One SC', cursive;
-}
-@media (min-width: 900px) {
-  body header {
-    background-position-y: -10rem;
-  }
+  letter-spacing: .2rem;
 }
 body nav {
   display: flex;
@@ -194,7 +195,7 @@ body nav {
   font-size: 3.5rem;
   background-image: linear-gradient(120deg, #227756 15%, #007180 90%);
   padding: .2rem;
-  padding-bottom: .25rem;
+  padding-bottom: .5rem;
   box-shadow: 0px 2px 3px grey;
 }
 body nav a {
@@ -203,7 +204,6 @@ body nav a {
   padding: 2rem;
   text-align: center;
   letter-spacing: .22rem;
-  font-family: 'Montserrat', sans-serif;
   outline-offset: -4px;
   border: 1px white solid;
   border-radius: .5rem;
@@ -215,8 +215,121 @@ body nav a:focus {
 }
 body main {
   max-width: 90rem;
-  width: 95%;
+  font-weight: 0;
+  font-size: 2rem;
 }
-body main div {
-  margin: 2rem 1rem;
+body main h2 {
+  font-family: 'Bowlby One SC', cursive;
+  letter-spacing: .2rem;
+  font-size: 120%;
+  margin: 3rem;
+  text-align: center;
+}
+body main h3 {
+  font-weight: 700;
+  padding: 2rem;
+  font-size: 2.5rem;
+  box-shadow: 0 -5px 10px rgba(3, 65, 45, 0.61);
+  margin-top: 2rem;
+  border-radius: 1rem 1rem 0 0;
+  text-align: center;
+}
+body main .a {
+  background-color: rgba(128, 182, 41, 0.493);
+}
+body main .b {
+  background-color: rgba(58, 182, 41, 0.493);
+}
+body main .c {
+  background-color: rgba(46, 163, 75, 0.493);
+}
+body main .d {
+  background-color: rgba(30, 136, 101, 0.493);
+}
+body main .e {
+  background-color: rgba(30, 136, 101, 0.493);
+}
+body main .f {
+  background-color: rgba(46, 163, 75, 0.493);
+}
+body main .g {
+  background-color: rgba(58, 182, 41, 0.493);
+}
+body main .h {
+  background-color: rgba(128, 182, 41, 0.493);
+}
+body main ul {
+  width: 90%;
+  margin: 1rem auto 5rem auto;
+}
+body main ul li {
+  list-style: circle;
+  margin-left: 3rem;
+  margin-top: 1rem;
+}
+body main h4 {
+  margin: 2rem;
+  text-align: center;
+  font-size: 1.6rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+body main .hire-me {
+  border: 1px solid rgba(5, 95, 107, 0.151);
+  width: 80%;
+  margin: 0 auto;
+  background-color: #e1f1f1;
+  padding: 0 3rem 1rem 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 0 20px rgba(51, 99, 138, 0.63);
+}
+body main .hire-me p {
+  margin-bottom: 2rem;
+}
+body footer {
+  width: 100%;
+}
+body footer h2 {
+  font-family: 'Bowlby One SC', cursive;
+  letter-spacing: .2rem;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 4rem;
+}
+body footer fieldset {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  margin: 1rem auto;
+}
+body footer label {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #073127;
+}
+body footer input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(30, 136, 101, 0.493);
+}
+body footer #about {
+  height: 10rem;
+  width: 100%;
+  max-width: 100%;
+  font-size: 2.5rem;
+  padding: 1rem;
+  border: 1px solid rgba(30, 136, 101, 0.493);
+  border-radius: 1rem;
+}
+body footer button {
+  background-color: #073127;
+  padding: 2rem;
+  font-size: 2rem;
+  margin: 2rem auto;
+  color: white;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 3px 3px 5px rgba(51, 99, 138, 0.63);
 }
