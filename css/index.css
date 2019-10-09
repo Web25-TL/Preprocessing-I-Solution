@@ -160,12 +160,22 @@ body header {
   height: 6rem;
   max-width: 80rem;
   background-image: url('../images/tree-tile-small3.gif');
-  background-blend-mode: multiply;
-  background-color: #305a64;
-  background-size: 15rem;
+  background-blend-mode: overlay;
+  background-color: #073127;
+  background-size: 20rem;
   background-attachment: fixed;
-  background-position-y: -4.5rem;
+  background-position-y: -7.5rem;
   box-shadow: 0px 2px 2px rgba(51, 99, 138, 0.63);
+}
+body header .intro-blurb {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  color: white;
+  font-size: 4rem;
+  font-family: 'Bowlby One SC', cursive;
 }
 @media (min-width: 900px) {
   body header {
@@ -174,23 +184,34 @@ body header {
 }
 body nav {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   max-width: 80rem;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   position: sticky;
-  top: 0rem;
-  font-size: 2rem;
+  top: -15rem;
+  font-size: 3.5rem;
   background-image: linear-gradient(120deg, #227756 15%, #007180 90%);
+  padding: 0.2rem;
+  padding-bottom: 0.25rem;
+  box-shadow: 0px 2px 3px grey;
 }
 body nav a {
-  color: #c5e6f5;
-  width: 100%;
-  padding: 1rem;
+  color: #ffffff;
+  width: 48%;
+  padding: 2rem;
   text-align: center;
+  letter-spacing: 0.22rem;
+  font-family: 'Montserrat', sans-serif;
+  outline-offset: -4px;
+  border: 1px white solid;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.376);
+  margin: 0.25rem;
 }
 body nav a:focus {
-  color: red;
+  background-color: #22a170;
 }
 body main {
   max-width: 90rem;
